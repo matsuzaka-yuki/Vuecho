@@ -47,10 +47,8 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="<?php $this->options->themeUrl('assets/js/prism-full.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('assets/js/toc-desktop.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('assets/js/toc-mobile.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('assets/js/code-enhancements.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('assets/js/fuse.min.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('assets/js/main.js'); ?>"></script>
     

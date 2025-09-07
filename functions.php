@@ -30,14 +30,6 @@ function themeConfig($form) {
     $socialEmail = new Typecho_Widget_Helper_Form_Element_Text('socialEmail', NULL, NULL, _t('联系邮箱'), _t('输入联系邮箱地址'));
     $form->addInput($socialEmail);
     
-    // 代码高亮主题
-    $codeTheme = new Typecho_Widget_Helper_Form_Element_Select('codeTheme', array(
-        'default' => _t('默认'),
-        'dark' => _t('暗色'),
-        'tomorrow' => _t('Tomorrow'),
-        'github' => _t('GitHub')
-    ), 'default', _t('代码高亮主题'), _t('选择代码块的高亮主题'));
-    $form->addInput($codeTheme);
     
     // 搜索功能
     $enableSearch = new Typecho_Widget_Helper_Form_Element_Radio('enableSearch', array(
@@ -271,8 +263,14 @@ function getAdjacentPosts($widget) {
 function getCustomAvatar($email, $size = 40, $default = '') {
     // 检查是否为QQ邮箱
     if (preg_match('/@qq\.com$/i', $email)) {
-        // 使用QQ头像插件处理头像
-        return QQAvatar_Plugin::getQQAvatar($email, $size, $default);
+        // 从QQ邮箱提取QQ号
+        $qq = str_replace('@qq.com', '', strtolower($email));
+        // 如果是纯数字则使用QQ头像API
+        if(is_numeric($qq)) {
+            return "http://q.qlogo.cn/headimg_dl?dst_uin=" . $qq . "&spec=640&img_type=jpg";
+        }
+        // 非QQ号则返回默认头像
+        return $default ? $default : Helper::options()->themeUrl . '/assets/images/default-avatar.svg';
     } else {
         // 非QQ邮箱使用主题设置中的默认头像
         $options = Helper::options();

@@ -22,7 +22,7 @@
         if (document.querySelector('.nav-search')) {
             initSearch();
         }
-        initCodeHighlight();
+        initCodeCopyButtons();
         initScrollSpy();
         initUXEnhancements();
         initBackToTop();
@@ -445,22 +445,9 @@
         }
     }
 
-    // 初始化代码高亮
-    function initCodeHighlight() {
-        // 如果Prism.js已加载，则高亮所有代码块
-        if (typeof Prism !== 'undefined') {
-            // 启用行号插件
-            Prism.plugins.lineNumbers = true;
-            
-            // 高亮所有代码块
-            Prism.highlightAll();
-            
-            // 为代码块添加行号
-            addLineNumbers();
-            
-            // 添加语言标签
-            addLanguageLabels();
-        }
+    // 初始化代码复制按钮
+    function initCodeCopyButtons() {
+        addCodeCopyButtons();
     }
 
     // 添加代码复制按钮
@@ -469,6 +456,12 @@
         
         codeBlocks.forEach(codeBlock => {
             const pre = codeBlock.parentElement;
+            
+            // 检查是否已经添加了复制按钮
+            if (pre.querySelector('.code-copy-btn')) {
+                return;
+            }
+            
             const button = document.createElement('button');
             button.className = 'code-copy-btn';
             button.innerHTML = `
@@ -507,7 +500,7 @@
         const originalText = button.innerHTML;
         button.innerHTML = `
             <svg viewBox="0 0 24 24" width="16" height="16">
-                <path fill="currentColor" d="M9 16.17L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
             </svg>
             <span>已复制</span>
         `;
@@ -944,13 +937,8 @@
 
     // PJAX后重新初始化功能
     function reinitializeAfterPjax() {
-        // 重新初始化代码高亮
-        if (typeof Prism !== 'undefined') {
-            Prism.highlightAll();
-        }
-        
         // 重新添加代码复制按钮
-        addCodeCopyButtons();
+            addCodeCopyButtons();
         
         // 重新初始化侧边栏高亮
         highlightCurrentPageInTree();

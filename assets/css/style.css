@@ -6,7 +6,7 @@
 /* CSS变量定义 */
 :root {
   /* 颜色系统 - 浅色模式 */
-  --primary-color: #3eaf7c;
+  --primary-color: rgba(62, 175, 124, 0.7);
   --primary-dark: #369970;
   --primary-light: #4fc08d;
   --text-color: #2c3e50;
@@ -39,7 +39,7 @@
 /* 夜间模式变量 */
 [data-theme="dark"] {
   /* 颜色系统 - 夜间模式 */
-  --primary-color: #4fc08d;
+  --primary-color: rgba(79, 192, 141, 0.7);
   --primary-dark: #42b883;
   --primary-light: #5dd39e;
   --text-color: #e2e8f0;
@@ -98,6 +98,48 @@ body {
 /* 主题切换时的优化 */
 .theme-switching {
   pointer-events: none; /* 防止切换过程中的意外点击 */
+}
+
+/* 代码复制按钮样式 */
+.code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.code-copy-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.code-copy-btn.copied {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+pre:hover .code-copy-btn {
+  opacity: 1;
+}
+
+.code-copy-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .theme-switching *,

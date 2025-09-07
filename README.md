@@ -15,8 +15,7 @@
 - 🧭 **清晰导航结构** - 顶部导航栏、面包屑导航、侧边栏目录
 - 📖 **自动目录生成** - 自动生成文章目录树，支持折叠展开
 - 🔍 **全站搜索功能** - 实时搜索文档内容，支持关键词高亮
-- 🎯 **代码语法高亮** - 支持多种编程语言的语法高亮显示
-- 📋 **代码复制功能** - 一键复制代码块内容
+
 - 🏷️ **文档分类管理** - 支持分类和标签系统，便于内容组织
 - ⚡ **性能优化** - 轻量级设计，快速加载
 
@@ -24,7 +23,7 @@
 
 - **后端**: PHP (Typecho 1.2+)
 - **前端**: HTML5/CSS3/JavaScript (ES6+)
-- **代码高亮**: Prism.js
+
 - **搜索功能**: Fuse.js
 - **字体**: Inter (Google Fonts)
 
@@ -84,7 +83,7 @@ git clone https://github.com/matsuzaka-yuki/Vuecho.git
 - **联系邮箱**: 输入联系邮箱地址
 
 #### 功能设置
-- **代码高亮主题**: 选择代码块的高亮风格（默认/暗色/Tomorrow/GitHub）
+
 - **搜索功能**: 开启/关闭全站搜索功能
 - **评论功能**: 开启/关闭评论功能
 - **Font Awesome图标**: 启用/禁用图标库
@@ -146,10 +145,10 @@ docs/
 ├── assets/                 # 静态资源目录
 │   ├── css/
 │   │   ├── style.css      # 主样式文件
-│   │   └── prism.css      # 代码高亮样式
+
 │   ├── js/
 │   │   ├── main.js        # 主要JavaScript功能
-│   │   ├── prism.js       # 代码高亮库
+
 │   │   └── fuse.min.js    # 搜索功能库
 │   └── images/            # 图片资源
 ├── index.php              # 首页模板
@@ -259,7 +258,7 @@ A: 主题采用响应式设计，如有问题请：
 - 🎉 初始版本发布
 - ✨ 实现VuePress风格设计
 - ✨ 添加响应式布局支持
-- ✨ 集成代码高亮功能
+
 - ✨ 实现全站搜索功能
 - ✨ 添加自动目录生成
 
@@ -320,7 +319,7 @@ of this software and associated documentation files...
 
 - [Typecho](http://typecho.org/) - 优秀的博客平台
 - [VuePress](https://vuepress.vuejs.org/) - 设计灵感来源
-- [Prism.js](https://prismjs.com/) - 代码高亮库
+
 - [Fuse.js](https://fusejs.io/) - 模糊搜索库
 - [Inter](https://rsms.me/inter/) - 优秀的字体
 

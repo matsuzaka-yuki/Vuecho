@@ -26,10 +26,8 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/prism.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/toc-desktop.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/toc-mobile.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/code-enhancements.css'); ?>">
     
     <!-- 首页样式 -->
     <?php if ($this->is('index')): ?>
