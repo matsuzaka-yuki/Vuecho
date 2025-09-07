@@ -59,7 +59,7 @@ function themeConfig($form) {
     $enableFontAwesome = new Typecho_Widget_Helper_Form_Element_Radio('enableFontAwesome', array(
         '1' => _t('开启'),
         '0' => _t('关闭')
-    ), '1', _t('Font Awesome图标'), _t('是否启用Font Awesome 6.4图标库'));
+    ), '1', _t('Font Awesome图标'), _t('是否启用Font Awesome 7.0图标库'));
     $form->addInput($enableFontAwesome);
     
     // 默认分类图标

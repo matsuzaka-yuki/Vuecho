@@ -38,7 +38,7 @@
     
     <!-- Font Awesome -->
     <?php if (!isset($this->options->enableFontAwesome) || $this->options->enableFontAwesome !== '0'): ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/fontawesome/all.min.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <?php endif; ?>
     
     <!-- Fonts -->
