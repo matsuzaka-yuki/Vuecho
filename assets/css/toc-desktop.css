@@ -1,0 +1,315 @@
+/**
+ * 桌面端TOC样式 - 右侧滑设计
+ */
+
+/* 桌面端TOC容器 */
+.toc-desktop {
+    position: fixed;
+    top: var(--header-height, 60px);
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    background: var(--sidebar-bg, #f8fafc);
+    border-left: 1px solid var(--border-color, #e2e8f0);
+    z-index: 40;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+
+/* 隐藏状态 */
+.toc-desktop.hidden {
+    transform: translateX(100%);
+}
+
+/* 切换按钮 */
+.toc-desktop-toggle {
+    position: fixed;
+    top: 50%;
+    right: 280px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 60px;
+    background: var(--sidebar-bg, #f8fafc);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 41;
+    transition: all 0.3s ease;
+    color: var(--text-light, #64748b);
+}
+
+.toc-desktop-toggle:hover {
+    background: var(--bg-hover, #f1f5f9);
+    color: var(--primary-color, #3eaf7c);
+}
+
+.toc-desktop.hidden + .toc-desktop-toggle {
+    right: 0;
+    border-radius: 8px 0 0 8px;
+}
+
+.toc-desktop-toggle-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.toc-desktop.hidden + .toc-desktop-toggle .toc-desktop-toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* TOC包装器 */
+.toc-desktop-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--sidebar-bg, #f8fafc);
+}
+
+/* TOC头部 */
+.toc-desktop-header {
+    padding: 1.5rem 1.25rem 1rem;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    background: var(--sidebar-header-bg, #ffffff);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.toc-desktop-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color, #2d3748);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    letter-spacing: -0.025em;
+}
+
+.toc-icon {
+    color: var(--primary-color, #3eaf7c);
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+/* TOC导航 */
+.toc-desktop-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 0;
+    background: var(--sidebar-bg, #f8fafc);
+}
+
+.toc-desktop-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.toc-desktop-nav::-webkit-scrollbar-track {
+    background: var(--sidebar-bg, #f8fafc);
+    border-radius: 3px;
+}
+
+.toc-desktop-nav::-webkit-scrollbar-thumb {
+    background: var(--border-color, #e2e8f0);
+    border-radius: 3px;
+    transition: background 0.2s ease;
+}
+
+.toc-desktop-nav::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light, #a0aec0);
+}
+
+/* TOC列表 */
+.toc-desktop-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toc-desktop-item {
+    margin: 0;
+}
+
+/* TOC链接 */
+.toc-desktop-link {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--sidebar-text, #64748b);
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-left: 3px solid transparent;
+    transition: all 0.25s ease;
+    word-break: break-word;
+    position: relative;
+    margin: 0.125rem 0;
+}
+
+.toc-desktop-link:hover {
+    color: var(--primary-color, #3eaf7c);
+    background: var(--sidebar-hover, #ffffff);
+    border-left-color: var(--primary-color, #3eaf7c);
+    transform: translateX(2px);
+}
+
+.toc-desktop-link.active {
+    color: var(--primary-color, #3eaf7c);
+    background: var(--sidebar-active, #ffffff);
+    border-left-color: var(--primary-color, #3eaf7c);
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 不同级别的标题缩进 */
+.toc-level-1 .toc-desktop-link {
+    padding-left: 1.25rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+.toc-level-2 .toc-desktop-link {
+    padding-left: 1.75rem;
+    font-weight: 500;
+}
+
+.toc-level-3 .toc-desktop-link {
+    padding-left: 2.25rem;
+    font-size: 0.8125rem;
+    opacity: 0.9;
+}
+
+.toc-level-4 .toc-desktop-link {
+    padding-left: 2.75rem;
+    font-size: 0.8125rem;
+    opacity: 0.85;
+}
+
+.toc-level-5 .toc-desktop-link {
+    padding-left: 3.25rem;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.toc-level-6 .toc-desktop-link {
+    padding-left: 3.75rem;
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
+/* 响应式隐藏 */
+@media (max-width: 1199px) {
+    .toc-desktop {
+        display: none;
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .toc-desktop,
+    .toc-desktop-toggle {
+        --sidebar-bg: #1a202c;
+        --sidebar-header-bg: #2d3748;
+        --sidebar-hover: #2d3748;
+        --sidebar-active: #2d3748;
+        --sidebar-text: #a0aec0;
+        --border-color: #4a5568;
+        --text-color: #e2e8f0;
+        --text-light: #a0aec0;
+        --primary-color: #68d391;
+        --bg-hover: #2d3748;
+    }
+}
+
+/* 自定义深色模式类 */
+.dark .toc-desktop,
+.dark .toc-desktop-toggle,
+.toc-desktop.dark-theme,
+.toc-desktop-toggle.dark-theme {
+    --sidebar-bg: #1a202c;
+    --sidebar-header-bg: #2d3748;
+    --sidebar-hover: #2d3748;
+    --sidebar-active: #2d3748;
+    --sidebar-text: #a0aec0;
+    --border-color: #4a5568;
+    --text-color: #e2e8f0;
+    --text-light: #a0aec0;
+    --primary-color: #68d391;
+    --bg-hover: #2d3748;
+}
+
+/* data-theme="dark" 支持 */
+[data-theme="dark"] .toc-desktop,
+[data-theme="dark"] .toc-desktop-toggle {
+    --sidebar-bg: #1a202c;
+    --sidebar-header-bg: #2d3748;
+    --sidebar-hover: #2d3748;
+    --sidebar-active: #2d3748;
+    --sidebar-text: #a0aec0;
+    --border-color: #4a5568;
+    --text-color: #e2e8f0;
+    --text-light: #a0aec0;
+    --primary-color: #68d391;
+    --bg-hover: #2d3748;
+}
+
+/* 动画效果 */
+.toc-desktop-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.toc-desktop-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: var(--primary-color, #3eaf7c);
+    opacity: 0.1;
+    transition: width 0.3s ease;
+}
+
+.toc-desktop-link:hover::before,
+.toc-desktop-link.active::before {
+    width: 100%;
+}
+
+/* 空状态 */
+.toc-desktop-empty {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--text-light, #64748b);
+    font-size: 0.875rem;
+}
+
+/* 加载状态 */
+.toc-desktop-loading {
+    padding: 1rem;
+    text-align: center;
+}
+
+.toc-desktop-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-top-color: var(--primary-color, #3eaf7c);
+    border-radius: 50%;
+    animation: toc-spin 1s linear infinite;
+}
+
+@keyframes toc-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

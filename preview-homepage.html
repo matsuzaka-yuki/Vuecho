@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VuePress风格首页预览</title>
+    
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link rel="stylesheet" href="assets/fontawesome/all.min.css">
+    
+    <!-- 字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="home">
+    
+    <!-- 顶部导航 -->
+    <header class="docs-header">
+        <nav class="docs-nav">
+            <div class="nav-container">
+                <!-- Logo和站点标题 -->
+                <div class="nav-brand">
+                    <a href="#" class="brand-link">
+                        <span class="brand-title">VuePress Docs</span>
+                    </a>
+                </div>
+                
+                <!-- 主导航菜单 -->
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">首页</a></li>
+                        <li><a href="#">指南</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">配置</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 搜索框 -->
+                <div class="nav-search">
+                    <form class="search-form">
+                        <input type="search" class="search-input" placeholder="搜索文档...">
+                        <button type="submit" class="search-btn">
+                            <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- VuePress风格首页 -->
+    <div class="homepage-container">
+        <!-- Hero区域 -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">VuePress Docs</h1>
+                    <p class="hero-description">
+                        一个简洁、现代的文档主题，专为技术文档而设计。提供优雅的阅读体验和强大的功能支持。
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn-primary">快速上手</a>
+                        <a href="#" class="btn btn-secondary">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特性展示区域 -->
+        <section class="features-section">
+            <div class="features-container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3 class="feature-title">简洁设计</h3>
+                        <p class="feature-description">现代化的界面设计，专注内容展示，让读者能够专心阅读文档内容</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">响应式布局</h3>
+                        <p class="feature-description">完美适配各种设备和屏幕尺寸，无论是桌面端还是移动端都有良好体验</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">快速搜索</h3>
+                        <p class="feature-description">内置全文搜索功能，快速定位内容，提高文档查阅效率</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">代码高亮</h3>
+                        <p class="feature-description">支持多种编程语言的语法高亮，让代码示例更加清晰易读</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">夜间模式</h3>
+                        <p class="feature-description">内置深色主题支持，保护眼睛，适合长时间阅读文档</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">SEO优化</h3>
+                        <p class="feature-description">针对搜索引擎优化，让你的文档更容易被发现和索引</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 简单的JavaScript用于测试交互 -->
+    <script>
+        // 主题切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加主题切换按钮（仅用于预览）
+            const nav = document.querySelector('.nav-menu ul');
+            const themeToggle = document.createElement('li');
+            themeToggle.innerHTML = '<a href="#" id="theme-toggle"><i class="fas fa-moon"></i></a>';
+            nav.appendChild(themeToggle);
+            
+            // 主题切换逻辑
+            document.getElementById('theme-toggle').addEventListener('click', function(e) {
+                e.preventDefault();
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                
+                // 更新图标
+                const icon = this.querySelector('i');
+                if (newTheme === 'dark') {
+                    icon.className = 'fas fa-sun';
+                } else {
+                    icon.className = 'fas fa-moon';
+                }
+            });
+            
+            // 移动端菜单切换
+            document.getElementById('nav-toggle').addEventListener('click', function() {
+                const navMenu = document.querySelector('.nav-menu');
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

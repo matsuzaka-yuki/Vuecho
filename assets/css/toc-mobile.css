@@ -1,0 +1,346 @@
+/**
+ * 移动端TOC样式 - 文章头部可折叠显示
+ */
+
+/* 移动端TOC容器 */
+.toc-mobile {
+    margin: 1.5rem 0;
+    background: var(--bg-color, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* TOC包装器 */
+.toc-mobile-wrapper {
+    width: 100%;
+}
+
+/* TOC头部 */
+.toc-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-secondary, #f8fafc);
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    cursor: pointer;
+    user-select: none;
+}
+
+.toc-mobile-title {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-color, #2d3748);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toc-icon {
+    color: var(--primary-color, #3eaf7c);
+    flex-shrink: 0;
+}
+
+/* 折叠按钮 */
+.toc-mobile-toggle {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--text-light, #64748b);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toc-mobile-toggle:hover {
+    background: var(--bg-hover, #f1f5f9);
+    color: var(--primary-color, #3eaf7c);
+}
+
+.toc-mobile-toggle:focus {
+    outline: 2px solid var(--primary-color, #3eaf7c);
+    outline-offset: 2px;
+}
+
+.toc-toggle-icon {
+    transition: transform 0.3s ease;
+    width: 16px;
+    height: 16px;
+}
+
+.toc-mobile-toggle.collapsed .toc-toggle-icon {
+    transform: rotate(-90deg);
+}
+
+/* TOC导航 */
+.toc-mobile-nav {
+    max-height: 400px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.toc-mobile-nav.collapsed {
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* TOC列表 */
+.toc-mobile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.toc-mobile-item {
+    margin: 0;
+}
+
+/* TOC链接 */
+.toc-mobile-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-light, #64748b);
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    word-break: break-word;
+    touch-action: manipulation;
+}
+
+.toc-mobile-link:hover {
+    color: var(--primary-color, #3eaf7c);
+    background: var(--bg-hover, #f1f5f9);
+    border-left-color: var(--primary-color, #3eaf7c);
+}
+
+.toc-mobile-link.active {
+    color: var(--primary-color, #3eaf7c);
+    background: var(--primary-bg, #f0f9ff);
+    border-left-color: var(--primary-color, #3eaf7c);
+    font-weight: 500;
+}
+
+/* 不同级别的标题缩进 */
+.toc-level-1 .toc-mobile-link {
+    padding-left: 1rem;
+    font-weight: 600;
+}
+
+.toc-level-2 .toc-mobile-link {
+    padding-left: 1.5rem;
+}
+
+.toc-level-3 .toc-mobile-link {
+    padding-left: 2rem;
+    font-size: 0.8125rem;
+}
+
+.toc-level-4 .toc-mobile-link {
+    padding-left: 2.5rem;
+    font-size: 0.8125rem;
+}
+
+.toc-level-5 .toc-mobile-link {
+    padding-left: 3rem;
+    font-size: 0.75rem;
+}
+
+.toc-level-6 .toc-mobile-link {
+    padding-left: 3.5rem;
+    font-size: 0.75rem;
+}
+
+/* 平板端样式调整 */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .toc-mobile {
+        margin: 2rem 0;
+    }
+    
+    .toc-mobile-header {
+        padding: 1.25rem;
+    }
+    
+    .toc-mobile-title {
+        font-size: 1rem;
+    }
+    
+    .toc-mobile-link {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+    
+    .toc-level-1 .toc-mobile-link {
+        padding-left: 1.25rem;
+    }
+    
+    .toc-level-2 .toc-mobile-link {
+        padding-left: 1.75rem;
+    }
+    
+    .toc-level-3 .toc-mobile-link {
+        padding-left: 2.25rem;
+    }
+    
+    .toc-level-4 .toc-mobile-link {
+        padding-left: 2.75rem;
+    }
+    
+    .toc-level-5 .toc-mobile-link {
+        padding-left: 3.25rem;
+    }
+    
+    .toc-level-6 .toc-mobile-link {
+        padding-left: 3.75rem;
+    }
+}
+
+/* 桌面端隐藏 */
+@media (min-width: 1200px) {
+    .toc-mobile {
+        display: none;
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .toc-mobile {
+        --bg-color: #1a202c;
+        --bg-secondary: #2d3748;
+        --bg-hover: #2d3748;
+        --border-color: #4a5568;
+        --text-color: #e2e8f0;
+        --text-light: #a0aec0;
+        --primary-color: #68d391;
+        --primary-bg: #1a365d;
+    }
+}
+
+/* 自定义深色模式类 */
+.dark .toc-mobile,
+.toc-mobile.dark-theme {
+    --bg-color: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-hover: #2d3748;
+    --border-color: #4a5568;
+    --text-color: #e2e8f0;
+    --text-light: #a0aec0;
+    --primary-color: #68d391;
+    --primary-bg: #1a365d;
+}
+
+/* data-theme="dark" 支持 */
+[data-theme="dark"] .toc-mobile {
+    --bg-color: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-hover: #2d3748;
+    --border-color: #4a5568;
+    --text-color: #e2e8f0;
+    --text-light: #a0aec0;
+    --primary-color: #68d391;
+    --primary-bg: #1a365d;
+}
+
+/* 动画效果 */
+.toc-mobile-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.toc-mobile-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: var(--primary-color, #3eaf7c);
+    opacity: 0.1;
+    transition: width 0.3s ease;
+}
+
+.toc-mobile-link:hover::before,
+.toc-mobile-link.active::before {
+    width: 100%;
+}
+
+/* 触摸优化 */
+@media (hover: none) and (pointer: coarse) {
+    .toc-mobile-link {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .toc-mobile-toggle {
+        padding: 0.5rem;
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .toc-toggle-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* 无障碍支持 */
+.toc-mobile-toggle:focus-visible {
+    outline: 2px solid var(--primary-color, #3eaf7c);
+    outline-offset: 2px;
+}
+
+.toc-mobile-link:focus-visible {
+    outline: 2px solid var(--primary-color, #3eaf7c);
+    outline-offset: -2px;
+}
+
+/* 减少动画（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+    .toc-mobile-nav,
+    .toc-toggle-icon,
+    .toc-mobile-link,
+    .toc-mobile-link::before {
+        transition: none;
+    }
+}
+
+/* 空状态 */
+.toc-mobile-empty {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--text-light, #64748b);
+    font-size: 0.875rem;
+}
+
+/* 加载状态 */
+.toc-mobile-loading {
+    padding: 1rem;
+    text-align: center;
+}
+
+.toc-mobile-loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-color, #e2e8f0);
+    border-top-color: var(--primary-color, #3eaf7c);
+    border-radius: 50%;
+    animation: toc-spin 1s linear infinite;
+}
+
+@keyframes toc-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
