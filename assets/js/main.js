@@ -543,11 +543,6 @@
         const toolbar = document.createElement('div');
         toolbar.className = 'ux-toolbar';
         toolbar.innerHTML = `
-            <button class="ux-tool back-to-top tooltip" data-tooltip="返回顶部">
-                <svg viewBox="0 0 24 24" width="20" height="20">
-                    <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
-                </svg>
-            </button>
             <button class="ux-tool dark-mode-toggle tooltip" data-tooltip="夜间模式">
                 <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
                     <path fill="currentColor" d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,2A1,1 0 0,0 11,3V5A1,1 0 0,0 13,5V3A1,1 0 0,0 12,2M17,7A1,1 0 0,0 18,6A1,1 0 0,0 17,5A1,1 0 0,0 16,6A1,1 0 0,0 17,7M21,11A1,1 0 0,0 22,12A1,1 0 0,0 21,13A1,1 0 0,0 20,12A1,1 0 0,0 21,11M17,17A1,1 0 0,0 18,18A1,1 0 0,0 17,19A1,1 0 0,0 16,18A1,1 0 0,0 17,17M12,22A1,1 0 0,0 13,21V19A1,1 0 0,0 11,19V21A1,1 0 0,0 12,22M7,17A1,1 0 0,0 6,18A1,1 0 0,0 7,19A1,1 0 0,0 8,18A1,1 0 0,0 7,17M3,11A1,1 0 0,0 2,12A1,1 0 0,0 3,13A1,1 0 0,0 4,12A1,1 0 0,0 3,11M7,7A1,1 0 0,0 6,6A1,1 0 0,0 7,5A1,1 0 0,0 8,6A1,1 0 0,0 7,7Z"/>
@@ -564,6 +559,11 @@
             <button class="ux-tool reading-mode-toggle tooltip" data-tooltip="阅读模式">
                 <svg viewBox="0 0 24 24" width="20" height="20">
                     <path fill="currentColor" d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                </svg>
+            </button>
+            <button class="ux-tool back-to-top tooltip" data-tooltip="返回顶部">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
                 </svg>
             </button>
         `;
