@@ -9,11 +9,35 @@
     let tocContainer = null;
     
     /**
+     * 检查是否为搜索结果页面
+     */
+    function isSearchResultsPage() {
+        // 检查URL是否包含搜索参数
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('s') && urlParams.get('s').trim() !== '') {
+            return true;
+        }
+        
+        // 检查页面标题是否包含搜索关键字
+        const archiveTitle = document.querySelector('.archive-title');
+        if (archiveTitle && archiveTitle.textContent.includes('包含关键字')) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    /**
      * 初始化移动端TOC
      */
     function initMobileTOC() {
         // 只在移动端和平板端运行
         if (window.innerWidth >= 1200) return;
+        
+        // 检查是否为搜索结果页面
+        if (isSearchResultsPage()) {
+            return;
+        }
         
         const article = document.querySelector('.post-content, .docs-content, article');
         if (!article) return;

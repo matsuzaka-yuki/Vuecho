@@ -29,9 +29,39 @@
     let isScrolling = false;
 
     /**
+     * 检查是否为搜索结果页面
+     */
+    function isSearchResultsPage() {
+        // 检查URL是否包含搜索参数
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('s') && urlParams.get('s').trim() !== '') {
+            return true;
+        }
+        
+        // 检查页面标题是否包含搜索关键字
+        const archiveTitle = document.querySelector('.archive-title');
+        if (archiveTitle && archiveTitle.textContent.includes('包含关键字')) {
+            return true;
+        }
+        
+        // 检查是否有搜索结果容器
+        const searchResults = document.querySelector('.search-results');
+        if (searchResults && searchResults.style.display !== 'none') {
+            return true;
+        }
+        
+        return false;
+    }
+
+    /**
      * 初始化TOC功能
      */
     function initTOC() {
+        // 检查是否为搜索结果页面
+        if (isSearchResultsPage()) {
+            return;
+        }
+        
         const container = document.querySelector(TOC_CONFIG.containerSelector);
         if (!container) return;
 
