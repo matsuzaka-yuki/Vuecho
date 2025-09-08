@@ -2156,31 +2156,7 @@ textarea.form-control {
   box-shadow: 0 0 10px rgba(62, 175, 124, 0.5);
 }
 
-.pjax-loader-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-
-.pjax-loader.active .pjax-loader-spinner {
-  display: block;
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--border-color);
-  border-top: 2px solid var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/* 移除转圈动画，只保留进度条 */
 
 /* PJAX页面过渡效果 */
 #pjax-container {

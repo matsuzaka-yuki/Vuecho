@@ -898,9 +898,6 @@
             loader.className = 'pjax-loader';
             loader.innerHTML = `
                 <div class="pjax-loader-bar"></div>
-                <div class="pjax-loader-spinner">
-                    <div class="spinner"></div>
-                </div>
             `;
             document.body.appendChild(loader);
         }
