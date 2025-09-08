@@ -1944,7 +1944,7 @@ textarea.form-control {
 .ux-toolbar {
   position: fixed;
   right: 2rem;
-  bottom: 6rem;
+  bottom: 3rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -2240,7 +2240,7 @@ textarea.form-control {
 @media (max-width: 768px) {
   .ux-toolbar {
     right: 1rem;
-    bottom: 5rem;
+    bottom: 3rem;
   }
   
   .ux-tool {
@@ -2261,10 +2261,9 @@ textarea.form-control {
 
 @media (max-width: 480px) {
   .ux-toolbar {
-    flex-direction: row;
-    bottom: 5rem;
-    right: 50%;
-    transform: translateX(50%);
+    flex-direction: column;
+    bottom: 3rem;
+    right: 1rem;
   }
   
   .font-size-panel {
